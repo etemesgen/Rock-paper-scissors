@@ -2,17 +2,89 @@
   text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+.Modal{
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  .Content{
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    width: 500px;
+  
+    .Header{
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+
+      h1{
+        color: hsl(229, 25%, 31%);
+      }
+      
+      button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  
+    .Footer{
+      padding: 30px;
+    }
+  }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  color: #FFFFFF;
+  border: 3px solid hsl(217, 16%, 45%);
+  padding: 20px 20px 20px 20px;
+  border-radius: 15px;
+  width: 40%;
+  margin: 70px auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+
+  .Score{
+    background-color: #FFFFFF;
+    padding: 0 30px 0 30px;
+    border-radius: 5px;
+    line-height: 0.2;
+    width: 12%;
+
+    p{
+      color: hsl(229, 64%, 46%);
+    }
+
+    h1{
+      color: hsl(229, 25%, 31%);
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.App-main{
+  margin-top: 8%;
+}
+
+.App-footer{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+  button{
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 40px 10px 40px;
+  }
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+
 }
