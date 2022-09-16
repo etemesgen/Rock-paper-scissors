@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 
   .Content{
     background-color: #FFFFFF;
@@ -66,7 +67,55 @@
 }
 
 .App-main{
-  margin-top: 8%;
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  
+  .Choice{
+    width: 30rem;
+    height: 23rem;
+  }
+
+  .First-line{
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    flex-wrap: wrap;
+  }
+
+  .Paper, .Scissors, .Rock{
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .Paper{
+    border: 15px solid hsl(230, 89%, 62%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  .Scissors{
+    border: 15px solid hsl(40, 84%, 53%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  .Rock{
+    border: 15px solid hsl(349, 71%, 52%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    position: relative;
+    top: 50px;
+  }
+
+  .Triangle{
+    position: relative;
+    bottom: 65%;    
+    z-index: -1;
+  }
 }
 
 .App-footer{
@@ -84,7 +133,30 @@
   }
 }
 
+@media only screen and (max-width: 375px) { 
+  .Modal{
+    background-color: #FFFFFF;
+    
+    h1{
+      position: absolute;
+      inset: 0;
+      margin-top: 30%;
+    }
 
-@media (prefers-reduced-motion: no-preference) {
+    button{
+      position: absolute;
+      inset: 0;
+      margin-top: 170%;
+    }
+  }
 
+  .App-header{
+    width: 80%;
+  }
+
+  .App-footer{
+    justify-content: center;
+    padding-right: 0;
+    margin-top: 30%;
+  }
 }

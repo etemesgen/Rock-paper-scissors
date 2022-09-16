@@ -11,9 +11,7 @@ function App() {
   const [ modalIsOpen, setModalIsOpen ] = useState(false);
 
   return (
-    <div className="App">
-      <Rules onClose={() => setModalIsOpen(false)} modalIsOpen={modalIsOpen}/>
-      
+    <div className="App">      
       <div id='page'>
         <header className="App-header">
           <div className="Logo">
@@ -25,12 +23,22 @@ function App() {
           </div>
         </header>
 
+      <Rules onClose={() => setModalIsOpen(false)} modalIsOpen={modalIsOpen}/>
+
         <main className="App-main">
           <div className="Choice">
-            <Triangle />
-            <Paper />
-            <Scissors />
-            <Rock />
+            <div className='First-line'>
+              <div className='Paper'>
+                <Paper />
+              </div>
+              <div className='Scissors'>
+                <Scissors />
+              </div>
+              <div className='Rock'>
+                <Rock />
+              </div>
+            </div>
+            <Triangle className="Triangle"/>
           </div>
         </main>
 
