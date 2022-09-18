@@ -116,6 +116,64 @@
     bottom: 65%;    
     z-index: -1;
   }
+
+  .StartGame{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10%;
+    gap: 10rem;
+
+    p{
+      font-size: 1.2rem;
+      color: #FFFFFF;
+    }
+
+    .Rock-game{
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 15px solid hsl(349, 71%, 52%);
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    .Opponent-choice{
+      background-color: hsla(238, 48%, 15%, 0.31);
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .Result{
+      margin-top: 70px;
+      h1{
+        font-size: 2.5rem;
+        color: #FFFFFF;
+      }
+
+      button{
+        background-color: #FFFFFF;
+        color: hsl(229, 25%, 31%);
+        padding: 10px;
+        width: 10rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover{
+        color: rgba(255, 0, 0, 0.719);
+      }
+    }
+  }
 }
 
 .App-footer{
@@ -154,9 +212,39 @@
     width: 80%;
   }
 
+  .App-main{
+
+    .StartGame{
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 10%;
+      gap: 3rem;
+
+      p{
+        position: relative;
+        top: 15rem;
+      }
+
+      .Opponent-choice{
+        position: relative;
+        bottom: 0.5rem;
+      }
+
+      .Result{
+        position: absolute;
+        inset: 0;
+        margin-top: 160%;
+
+        h1{
+          font-size: 4rem;
+        }
+      }
+    }
+  }
+
   .App-footer{
     justify-content: center;
     padding-right: 0;
-    margin-top: 30%;
+    margin-top: 75%;
   }
 }
