@@ -14,7 +14,6 @@ function App() {
   const [ paperIsClicked, setPaperIsClicked ] = useState(false);
   const [ scissorIsClicked, setScissorIsClicked ] = useState(false);
   const [ rockIsClicked, setRockIsClicked ] = useState(false);
-  const [ playerScore ] = useState(0);
 
   if(gameStarted){
     document.getElementById('initial-page').style = 'display: none;';
@@ -29,8 +28,7 @@ function App() {
           </div> 
           <div className="Score">
             <p>SCORE</p>
-            <h1 id='score'>{playerScore}</h1>
-            {localStorage.setItem("score", playerScore)}
+            <h1 id='score'>{sessionStorage.getItem('score') !== null ? sessionStorage.getItem('score') : 0}</h1>
           </div>
         </header>
 
@@ -53,7 +51,7 @@ function App() {
           </div>
 
           <div className='Game'>
-            <StartGame gameStarted={gameStarted} paperIsClicked={paperIsClicked} scissorIsClicked={scissorIsClicked} rockIsClicked={rockIsClicked} playerScore={playerScore}/>
+            <StartGame gameStarted={gameStarted} paperIsClicked={paperIsClicked} scissorIsClicked={scissorIsClicked} rockIsClicked={rockIsClicked}/>
           </div>
         </main>
 

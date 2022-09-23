@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as Paper } from '../assets/icon-paper.svg';
 import { ReactComponent as Scissors } from '../assets/icon-scissors.svg';
 import { ReactComponent as Rock } from '../assets/icon-rock.svg';
 
 const StartGame = props => {
+  const [isActive, setIsActive] = useState(false);
 
   if(!props.gameStarted){
     return null
@@ -25,6 +26,20 @@ const StartGame = props => {
 
   function restartGame(){
     window.location.reload(false);
+  }
+
+  let score = parseInt(sessionStorage.getItem("score"));
+
+  function saveScoreWin(){
+    sessionStorage.setItem('score', score + 1);
+  }
+
+  function getScore(){
+    if(sessionStorage.getItem('score') !== null){
+      document.getElementById('score').innerHTML = sessionStorage.getItem('score');
+    } else {
+      document.getElementById('score').innerHTML = 0;
+    }
   }
 
   return <div className='StartGame'>
@@ -53,21 +68,22 @@ const StartGame = props => {
           :
           null
         }
+        <div className={isActive ? "circle circle1" : ''}></div>
+        <div className={isActive ? "circle circle2" : ''}></div>
+        <div className={isActive ? "circle circle3" : ''}></div>
       </div>
     </div>
 
     {(() => {
       if ((props.paperIsClicked && generateChoice() === 'Rock') 
       || (props.rockIsClicked && generateChoice() === 'Scissors') 
-      || (props.scissorIsClicked && generateChoice() === 'Paper')
+      || (props.scissorIsClicked && generateChoice() === 'Paper') ||
+      (setIsActive(true))
       ) {
         return (
           <div className='Result'>
             {
-              localStorage.setItem("score", props.playerScore + 1)
-            }
-            {
-              document.getElementById('score').innerHTML = localStorage.getItem('score')
+              saveScoreWin()
             }
             <h1>YOU WIN</h1>
             <button onClick={restartGame}>PLAY AGAIN</button>
@@ -79,6 +95,9 @@ const StartGame = props => {
       || (props.scissorIsClicked && generateChoice() === 'Scissors')) {
         return (
           <div className='Result'>
+            {
+              sessionStorage.setItem('score', 0)
+            }
             <h1>DRAW</h1>
             <button onClick={restartGame}>PLAY AGAIN</button>
           </div>
@@ -87,12 +106,19 @@ const StartGame = props => {
       else {
         return (
           <div className='Result'>
+            {
+              sessionStorage.setItem('score', 0)
+            }
             <h1>YOU LOSE</h1>
             <button onClick={restartGame}>PLAY AGAIN</button>
           </div>
         )
-      }
+      }      
     })()}
+
+    {
+      getScore()
+    }
 
     <div className="Opponent">
       <p>THE HOUSE PICKED</p>
@@ -122,6 +148,9 @@ const StartGame = props => {
             )
           }
         })()}
+        <div className={!isActive ? "circle1-1 circle1" : ''}></div>
+        <div className={!isActive ? "circle1-1 circle2" : ''}></div>
+        <div className={!isActive ? "circle1-1 circle3" : ''}></div>
       </div>
     </div>
   </div>

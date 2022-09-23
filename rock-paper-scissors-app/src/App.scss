@@ -152,6 +152,53 @@
       margin-top: 40px;
     }
 
+    .circle {
+      width: 35%;
+      height: 65%;
+      background-color: rgba(232, 232, 232, 0.597);
+      position: absolute;
+      border-radius: 50%;
+      animation: ripple-animation 3s infinite ease-out;
+      inset: 0;
+      margin: 13.3rem 0 0 9.3rem;
+      z-index: -1;
+    }
+
+    .circle1-1 {
+      width: 35%;
+      height: 65%;
+      background-color: rgba(232, 232, 232, 0.597);
+      position: absolute;
+      border-radius: 50%;
+      animation: ripple-animation 3s infinite ease-out;
+      inset: 0;
+      margin: 13.3rem 0 0 49rem;
+      z-index: -1;
+    }
+    
+    .circle1 {
+      animation-delay: 0s;
+    }
+    
+    .circle2 {
+      animation-delay: 500ms;
+    }
+    
+    .circle3 {
+      animation-delay: 1s;
+    }
+    
+    @keyframes ripple-animation {
+      0% {
+        transform: scale(0.1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
     .Result{
       margin-top: 70px;
       h1{
@@ -228,6 +275,18 @@
       .Opponent-choice{
         position: relative;
         bottom: 0.5rem;
+      }
+
+      .circle{
+        width: 15rem;
+        height: 15rem;
+        margin: 20.5rem 0 0 -2.3rem;
+      }
+
+      .circle1-1{
+        width: 15rem;
+        height: 15rem;
+        margin: -2.5rem 0 0 -2.5rem;
       }
 
       .Result{
